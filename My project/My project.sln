@@ -11,13 +11,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-PoolMonitor-Editor", "Zenject-PoolMonitor-Editor.csproj", "{7F68AB16-BD2D-381D-0329-C88824C86FA4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-Editor", "Zenject-Editor.csproj", "{CD654AAA-94B2-BF71-1489-73C183399B2F}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-UnitTests-Editor", "Zenject-UnitTests-Editor.csproj", "{DB69195B-DBBB-C832-CE80-261F2CCAAC88}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-ReflectionBaking-Editor", "Zenject-ReflectionBaking-Editor.csproj", "{E6F77254-F4B9-1B6A-634E-7EC28E428EA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-TestFramework", "Zenject-TestFramework.csproj", "{BC458E37-8FC6-102F-2DB4-354073BFBA7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zenject-Editor", "Zenject-Editor.csproj", "{CD654AAA-94B2-BF71-1489-73C183399B2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,10 +45,6 @@ Global
 		{7F68AB16-BD2D-381D-0329-C88824C86FA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7F68AB16-BD2D-381D-0329-C88824C86FA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7F68AB16-BD2D-381D-0329-C88824C86FA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DB69195B-DBBB-C832-CE80-261F2CCAAC88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DB69195B-DBBB-C832-CE80-261F2CCAAC88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DB69195B-DBBB-C832-CE80-261F2CCAAC88}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +57,10 @@ Global
 		{BC458E37-8FC6-102F-2DB4-354073BFBA7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC458E37-8FC6-102F-2DB4-354073BFBA7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC458E37-8FC6-102F-2DB4-354073BFBA7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD654AAA-94B2-BF71-1489-73C183399B2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

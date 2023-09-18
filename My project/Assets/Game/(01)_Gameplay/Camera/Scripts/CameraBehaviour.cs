@@ -33,6 +33,10 @@ public class CameraBehaviour : IGameManager
     {
         //  throw new System.NotImplementedException();
     }
+    public void OnStageEnded()
+    {
+        asyncProcessor.StopCoroutine(cameraMovement);
+    }
     public void PlayerDied()
     {
         asyncProcessor.StopCoroutine(cameraMovement);
@@ -44,6 +48,10 @@ public class CameraBehaviour : IGameManager
     #endregion
 
     #region Unity Metods
+    /// <summary>
+    /// Camera movement
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator MoveCamera()
     {
         while (true)

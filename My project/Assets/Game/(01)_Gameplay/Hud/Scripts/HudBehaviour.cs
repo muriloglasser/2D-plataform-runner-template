@@ -1,7 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-
+using DG.Tweening;
 public class HudBehaviour : IGameManager
 {
     #region Properties
@@ -19,37 +19,36 @@ public class HudBehaviour : IGameManager
     }
     #endregion
 
-    #region Core Metods  
-    /// <summary>
-    /// Start game by game manager
-    /// </summary>
+    #region Zenject
     public void BeginCountdown()
     {
         asyncProcessor.StartCoroutine(StartCountDown());
     }
-    /// <summary>
-    /// Start gameplay after countdown
-    /// </summary>
     public void StartGameplay()
     {
         countDownText.gameObject.SetActive(false);
     }
-    /// <summary>
-    /// Add point to hud
-    /// </summary>
-    /// <param name="point"></param>
     public void AddPoint(int point)
     {
-        Debug.Log("Points added :" + point);
+        pointsText.gameObject.transform.DOScale(0.15f, 0.2f).OnComplete(delegate
+        {
+            pointsText.gameObject.transform.DOScale(1f, 0.3f).OnComplete(delegate { }).SetEase(Ease.OutBounce); 
+
+
+        }); 
         pointsText.text = string.Concat("POINTS: ", point.ToString());
     }
-    /// <summary>
-    /// On Player died
-    /// </summary>
     public void PlayerDied()
     {
-        pointsText.gameObject.SetActive(false);
+        pointsText.transform.parent.gameObject.SetActive(false);
     }
+    public void OnStageEnded()
+    {
+        pointsText.transform.parent.gameObject.SetActive(false);
+    }
+    #endregion
+
+    #region Core Metods  
     /// <summary>
     /// Start game countdown
     /// </summary>
@@ -64,11 +63,13 @@ public class HudBehaviour : IGameManager
             else
                 countDownText.text = "GO!";
 
+            countDownText.transform.localScale = Vector3.zero;
+            countDownText.transform.DOScale(1, 0.6f).SetEase(Ease.OutBounce);
+
             yield return new WaitForSeconds(1);
             count--;
         }
     }
-
 
     #endregion
 }

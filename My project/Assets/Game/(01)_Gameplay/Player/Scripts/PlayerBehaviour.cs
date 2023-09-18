@@ -69,11 +69,6 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            SceneManager.LoadScene("Gameplay", LoadSceneMode.Single);
-
-        }
         AnimationCycle();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -81,7 +76,7 @@ public class PlayerBehaviour : MonoBehaviour
         switch (collision.tag)
         {
             case "Box":
-                AddPoints(100);
+                AddPoints(1000);
                 break;
             case "CenaryObstacle":
                 Die();
@@ -91,6 +86,14 @@ public class PlayerBehaviour : MonoBehaviour
                 break;
             case "Saw":
                 Die();
+                break;
+            case "StageEnd":
+                gameManager.OnStageEnded(points);
+
+                for (int i = 0; i < IGameManager.Count; i++)
+                {
+                    IGameManager[i].OnStageEnded();
+                }
                 break;
             default:
                 break;
@@ -105,6 +108,20 @@ public class PlayerBehaviour : MonoBehaviour
                 break;
             case "RedBarrel":
                 Die();
+                break;
+            case "Stop":
+                speedMultiplier = 0;
+                break;
+            default:
+                break;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        switch (collision.collider.tag)
+        {
+            case "Stop":
+                speedMultiplier = 1000;
                 break;
             default:
                 break;
@@ -234,15 +251,18 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
         rigidBody.velocity = Vector2.zero;
-        var direction = new Vector3(throwBackForce.x, throwBackForce.y , 0);
+        var direction = new Vector3(throwBackForce.x, throwBackForce.y, 0);
         rigidBody.AddForce(direction, ForceMode2D.Force);
 
         died = true;
+
+        gameManager.OnPlayerDied(points);
 
         for (int i = 0; i < IGameManager.Count; i++)
         {
             IGameManager[i].PlayerDied();
         }
+
 
     }
     /// <summary>
@@ -274,7 +294,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     }
     #endregion
-
 }
 
 

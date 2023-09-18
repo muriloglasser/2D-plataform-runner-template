@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Zenject;
 
 public class GameManager
@@ -22,6 +23,10 @@ public class GameManager
     #endregion
 
     #region Core Metods
+    /// <summary>
+    /// Start gameplay
+    /// </summary>
+    /// <returns></returns>
     private IEnumerator StartGame()
     {
         for (int i = 0; i < IGameManager.Count; i++)
@@ -38,6 +43,27 @@ public class GameManager
 
         gameStarted = true;
     }
+    /// <summary>
+    /// Call game over
+    /// </summary>
+    /// <param name="points"></param>
+    public void OnPlayerDied(float points)
+    {
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
+        PlayerPrefs.SetFloat("Score", points);
+    }
+    /// <summary>
+    /// Call stage end
+    /// </summary>
+    public void OnStageEnded(float points)
+    {
+        SceneManager.LoadScene("GameEnd", LoadSceneMode.Additive);
+        PlayerPrefs.SetFloat("Score", points);
+    }
+    /// <summary>
+    /// Return gameplay state
+    /// </summary>
+    /// <returns></returns>
     public bool IsGameStarted()
     {
         return gameStarted;
@@ -54,4 +80,5 @@ public interface IGameManager
     public void BeginCountdown();
     public void StartGameplay();
     public void PlayerDied();
+    public void OnStageEnded();
 }

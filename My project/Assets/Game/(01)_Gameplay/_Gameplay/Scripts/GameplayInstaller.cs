@@ -1,5 +1,7 @@
 using Zenject;
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class GameplayInstaller : MonoInstaller<GameplayInstaller>
 {
@@ -10,6 +12,12 @@ public class GameplayInstaller : MonoInstaller<GameplayInstaller>
     [Header("Hud properties")]
     public TMPro.TMP_Text pointsTxt;
     public TMPro.TMP_Text countDownTxt;
+
+    [Header("Mobile input")]
+    [SerializeField] private bool enableMobileGameplay = false;
+    [SerializeField] private EventTrigger jumpButton;
+    [SerializeField] private EventTrigger slideButton;
+    [SerializeField] private EventTrigger shootButton;
 
     [Header("Camera properties")]
     [SerializeField] private Vector3 cameraOffset;
@@ -24,10 +32,10 @@ public class GameplayInstaller : MonoInstaller<GameplayInstaller>
     /// </summary>
     public override void InstallBindings()
     {
-
         SetUpHudBehaviour();
         SetGameManager();
         SetCameraBehaviour();
+        SetMobileInputBehaviour();
     }
     /// <summary>
     /// Make binding with TMP_Text to hud behaviour
@@ -49,6 +57,13 @@ public class GameplayInstaller : MonoInstaller<GameplayInstaller>
     public void SetCameraBehaviour()
     {
         Container.Bind<IGameManager>().To<CameraBehaviour>().AsSingle().WithArguments(cameraOffset, cameraM, player, cameraSpeed, asyncProcessor);
+    }
+    /// <summary>
+    /// Set mobile input behaviour
+    /// </summary>
+    public void SetMobileInputBehaviour()
+    {
+        Container.Bind<InputBehaviour>().AsSingle().WithArguments(asyncProcessor, jumpButton, slideButton, shootButton, enableMobileGameplay);
     }
     #endregion
 }

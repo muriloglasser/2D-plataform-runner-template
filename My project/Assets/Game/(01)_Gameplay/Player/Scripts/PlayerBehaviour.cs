@@ -30,14 +30,17 @@ public class PlayerBehaviour : MonoBehaviour
     private PlayerAnimationState playerAnimationState = PlayerAnimationState.Idle;
     private List<IGameManager> IGameManager;
     private GameManager gameManager;
+    private InputBehaviour inputBehaviour;
     #endregion
 
     #region Zenject
     [Inject]
-    public void SetUp(List<IGameManager> IGameManager, GameManager gameManager)
+    public void SetUp(List<IGameManager> IGameManager, GameManager gameManager, InputBehaviour inputBehaviour)
     {
         this.IGameManager = IGameManager;
         this.gameManager = gameManager;
+        this.inputBehaviour = inputBehaviour;
+
     }
     #endregion
 
@@ -170,7 +173,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (died)
             return;
 
-        if (Input.GetKey(KeyCode.W))
+        if (inputBehaviour.jumping)
         {
             if (overlapping)
             {
@@ -187,7 +190,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (died)
             return;
 
-        if (Input.GetKey(KeyCode.S) && !slide)
+        if (inputBehaviour.sliding && !slide)
         {
             if (overlapping)
             {
@@ -218,7 +221,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (died || !overlapping || slide)
             return;
 
-        if (Input.GetMouseButton(0) && !reload)
+        if (inputBehaviour.shooting && !reload)
         {
             animator.SetBool("IsShooting", true);
             Instantiate(bullet, shootPoint.position, Quaternion.identity);
@@ -287,7 +290,7 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("IsJumping", true);
         }
 
-        if (Input.GetMouseButtonUp(0))
+        if (!inputBehaviour.shooting)
         {
             animator.SetBool("IsShooting", false);
         }

@@ -61,7 +61,9 @@
     <Compile Include="Assets\Game\(01)_Gameplay\Camera\Scripts\CameraBehaviour.cs" />
     <Compile Include="Assets\Game\(01)_Gameplay\Hud\Scripts\HudBehaviour.cs" />
     <Compile Include="Assets\Game\(01)_Gameplay\Player\Scripts\BulletBehaviour.cs" />
+    <Compile Include="Assets\Game\(01)_Gameplay\Player\Scripts\InputBehaviour.cs" />
     <Compile Include="Assets\Game\(01)_Gameplay\Player\Scripts\PlayerBehaviour.cs" />
+    <Compile Include="Assets\Game\(03)_GameOver\Scripts\GameOverController.cs" />
     <Compile Include="Assets\Game\(00)_Menu\Scripts\MenuController.cs" />
     <Compile Include="Assets\Game\(01)_Gameplay\_Gameplay\Scripts\GameplayInstaller.cs" />
     <Compile Include="Assets\Game\(01)_Gameplay\Cenary\Box\Scripts\BoxBehaviour.cs" />
@@ -72,7 +74,6 @@
     <Compile Include="Assets\Game\(01)_Gameplay\Cenary\Saw\Scripts\SawBehaviour.cs" />
     <Compile Include="Assets\Game\(04)_Shared\Transition\Scripts\TransitionController.cs" />
     <Compile Include="Assets\Game\(01)_Gameplay\Cenary\Door\Scripts\DoorBehaviour.cs" />
-    <Compile Include="Assets\Game\(03)_GameOver\Scripts\GameOverController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

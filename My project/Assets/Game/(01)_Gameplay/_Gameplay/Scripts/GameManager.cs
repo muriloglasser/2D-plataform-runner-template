@@ -10,6 +10,8 @@ public class GameManager
     private List<IGameManager> IGameManager;
     private AsyncProcessor asyncProcessor;
     private bool gameStarted = false;
+    private bool isGameFinished = false;
+
     #endregion
 
     #region Zenject
@@ -49,6 +51,7 @@ public class GameManager
     /// <param name="points"></param>
     public void OnPlayerDied(float points)
     {
+        isGameFinished = true;
         SceneManager.LoadScene("GameOver", LoadSceneMode.Additive);
         PlayerPrefs.SetFloat("Score", points);
     }
@@ -57,16 +60,25 @@ public class GameManager
     /// </summary>
     public void OnStageEnded(float points)
     {
+        isGameFinished = true;
         SceneManager.LoadScene("GameEnd", LoadSceneMode.Additive);
         PlayerPrefs.SetFloat("Score", points);
     }
     /// <summary>
-    /// Return gameplay state
+    /// Return gameplay start state
     /// </summary>
     /// <returns></returns>
     public bool IsGameStarted()
     {
         return gameStarted;
+    }
+    /// <summary>
+    /// Return gameplay finish state
+    /// </summary>
+    /// <returns></returns>
+    public bool IsGameFinished()
+    {
+        return isGameFinished;
     }
     #endregion
 }

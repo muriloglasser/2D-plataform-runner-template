@@ -22,6 +22,8 @@ public class HudBehaviour : IGameManager
     #region Zenject
     public void BeginCountdown()
     {
+        pointsText.transform.parent.localScale = Vector3.zero;
+        pointsText.transform.parent.DOScale(1, 0.6f).SetEase(Ease.OutBounce);
         asyncProcessor.StartCoroutine(StartCountDown());
     }
     public void StartGameplay()

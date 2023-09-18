@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7789981165322457998}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 36.2452, y: -10.076229, z: -42.53309}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -158,7 +158,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2406858641595537186, guid: afe61362885854240b63665c84e7beb7, type: 3}
       propertyPath: m_Name
-      value: SceneContext
+      value: GameplayContext
       objectReference: {fileID: 0}
     - target: {fileID: 2406858641595537187, guid: afe61362885854240b63665c84e7beb7, type: 3}
       propertyPath: saw
@@ -184,6 +184,10 @@ PrefabInstance:
       propertyPath: asyncProcessor
       value: 
       objectReference: {fileID: 2659126469104970377}
+    - target: {fileID: 2406858641595537187, guid: afe61362885854240b63665c84e7beb7, type: 3}
+      propertyPath: cameraOffset.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afe61362885854240b63665c84e7beb7, type: 3}
 --- !u!4 &6786638370660455886 stripped

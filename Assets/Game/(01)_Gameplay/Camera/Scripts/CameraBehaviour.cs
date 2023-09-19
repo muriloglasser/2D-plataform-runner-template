@@ -57,7 +57,7 @@ public class CameraBehaviour : IGameManager
         while (true)
         {
             yield return null;
-            camera.position = Vector3.Lerp(camera.position, player.position + cameraOffset, cameraSpeed * Time.fixedDeltaTime);
+            camera.position = Vector3.Lerp(camera.position, player.position + cameraOffset, cameraSpeed * Time.deltaTime);
         }
 
     }

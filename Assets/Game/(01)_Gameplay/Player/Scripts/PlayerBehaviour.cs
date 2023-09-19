@@ -67,10 +67,10 @@ public class PlayerBehaviour : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(boxCollider2D.bounds.center, Vector2.down, boxCollider2D.bounds.extents.y + multiplierCast, groundLayer);
 
         if (hit.collider != null)
-            overlapping = true;        
+            overlapping = true;
         else
             overlapping = false;
-        
+
 
 
 
@@ -124,9 +124,13 @@ public class PlayerBehaviour : MonoBehaviour
             case "RedBarrel":
                 Die();
                 break;
+            case "Enemie":
+                Die();
+                break;
             case "Stop":
                 speedMultiplier = 0;
                 break;
+
             default:
                 break;
         }
@@ -242,7 +246,7 @@ public class PlayerBehaviour : MonoBehaviour
     public IEnumerator Reload()
     {
         reload = true;
-        yield return new WaitForSeconds(0.8f);
+        yield return new WaitForSeconds(0.4f);
         reload = false;
     }
     /// <summary>
@@ -281,7 +285,7 @@ public class PlayerBehaviour : MonoBehaviour
             animator.SetBool("IsJumping", false);
         }
         else if (overlapping)
-        {           
+        {
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsSliding", false);

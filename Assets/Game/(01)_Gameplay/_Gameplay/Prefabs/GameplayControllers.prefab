@@ -185,8 +185,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2659126469104970377}
     - target: {fileID: 2406858641595537187, guid: afe61362885854240b63665c84e7beb7, type: 3}
+      propertyPath: cameraOffset.x
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406858641595537187, guid: afe61362885854240b63665c84e7beb7, type: 3}
       propertyPath: cameraOffset.y
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2406858641595537187, guid: afe61362885854240b63665c84e7beb7, type: 3}
+      propertyPath: enableMobileGameplay
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: afe61362885854240b63665c84e7beb7, type: 3}

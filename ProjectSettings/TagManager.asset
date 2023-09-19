@@ -16,6 +16,7 @@ TagManager:
   - DoorButton
   - Stop
   - StageEnd
+  - Enemie
   layers:
   - Default
   - TransparentFX

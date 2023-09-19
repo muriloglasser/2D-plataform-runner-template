@@ -40009,6 +40009,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9215250510361961648}
     m_Modifications:
+    - target: {fileID: 2214930590990963626, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.4119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214930590990963626, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.4119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214930590990963626, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.4119
+      objectReference: {fileID: 0}
+    - target: {fileID: 2214930590990963626, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 5498326808528049223, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+      propertyPath: boxCollider2D
+      value: 
+      objectReference: {fileID: 8432175242087357898}
     - target: {fileID: 5498326808528049223, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
       propertyPath: speedMultiplier
       value: 1000
@@ -40065,6 +40085,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6941968527109235494, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 6941968527109235495, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
       propertyPath: m_Name
       value: Player
@@ -40086,6 +40110,11 @@ PrefabInstance:
 --- !u!4 &9215250510482745827 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6941968527109235492, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
+  m_PrefabInstance: {fileID: 2285002984700381895}
+  m_PrefabAsset: {fileID: 0}
+--- !u!61 &8432175242087357898 stripped
+BoxCollider2D:
+  m_CorrespondingSourceObject: {fileID: 7687904798837036813, guid: de7345a227c7f18438f05b81f28157ad, type: 3}
   m_PrefabInstance: {fileID: 2285002984700381895}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3386487539762986124
@@ -40297,7 +40326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5681675432000458370, guid: 4dfa63a981f7dde47a98bd63f48fc205, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.83
+      value: 5.907
       objectReference: {fileID: 0}
     - target: {fileID: 5681675432000458370, guid: 4dfa63a981f7dde47a98bd63f48fc205, type: 3}
       propertyPath: m_LocalPosition.z
@@ -40597,6 +40626,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9215250510361961648}
     m_Modifications:
+    - target: {fileID: 952479071744325444, guid: 8a2b6e629d975ce42a590c6a3039e0f3, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 952479071744325444, guid: 8a2b6e629d975ce42a590c6a3039e0f3, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952479071744325444, guid: 8a2b6e629d975ce42a590c6a3039e0f3, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 952479071744325444, guid: 8a2b6e629d975ce42a590c6a3039e0f3, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 952479071744325445, guid: 8a2b6e629d975ce42a590c6a3039e0f3, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -40775,7 +40820,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5681675432000458370, guid: 4dfa63a981f7dde47a98bd63f48fc205, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.718
+      value: 5.826
       objectReference: {fileID: 0}
     - target: {fileID: 5681675432000458370, guid: 4dfa63a981f7dde47a98bd63f48fc205, type: 3}
       propertyPath: m_LocalPosition.z

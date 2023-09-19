@@ -13,10 +13,12 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField] private Vector2 throwBackForce;
     [SerializeField] private bool overlapping = true;
     [Header("Components")]
-    [SerializeField] private Transform overlapPoint;
     [SerializeField] private Transform shootPoint;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] private BoxCollider2D boxCollider2D;
     [SerializeField] private Animator animator;
+    [SerializeField] private Animator muzzleAnimator;
+
     [SerializeField] private Rigidbody2D rigidBody;
     [Header("Bullet")]
     [SerializeField] private GameObject bullet;
@@ -27,7 +29,6 @@ public class PlayerBehaviour : MonoBehaviour
     private bool slide = false;
     ///
     private int points = 0;
-    private PlayerAnimationState playerAnimationState = PlayerAnimationState.Idle;
     private List<IGameManager> IGameManager;
     private GameManager gameManager;
     private InputBehaviour inputBehaviour;
@@ -58,12 +59,20 @@ public class PlayerBehaviour : MonoBehaviour
             if (!started)
             {
                 started = true;
-                playerAnimationState = PlayerAnimationState.Walk;
                 animator.SetBool("IsWalking", true);
             }
         }
 
-        overlapping = Physics2D.OverlapCircle(overlapPoint.position, 0.1f, groundLayer);
+        var multiplierCast = 0.1f;
+        RaycastHit2D hit = Physics2D.Raycast(boxCollider2D.bounds.center, Vector2.down, boxCollider2D.bounds.extents.y + multiplierCast, groundLayer);
+
+        if (hit.collider != null)
+            overlapping = true;        
+        else
+            overlapping = false;
+        
+
+
 
         Walk();
         Jump();
@@ -72,6 +81,9 @@ public class PlayerBehaviour : MonoBehaviour
     }
     private void Update()
     {
+        if (!gameManager.IsGameStarted())
+            return;
+
         AnimationCycle();
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -151,9 +163,6 @@ public class PlayerBehaviour : MonoBehaviour
     /// </summary>
     public void Idle()
     {
-        if (playerAnimationState == PlayerAnimationState.Idle)
-            return;
-
         animator.Play("Idle");
     }
     /// <summary>
@@ -173,7 +182,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (died)
             return;
 
-        if (inputBehaviour.jumping)
+        if (inputBehaviour.jumping && !slide)
         {
             if (overlapping)
             {
@@ -209,9 +218,6 @@ public class PlayerBehaviour : MonoBehaviour
     {
         slide = true;
         yield return new WaitForSeconds(1.2f);
-        animator.SetBool("IsSliding", false);
-        animator.SetBool("IsWalking", true);
-
         slide = false;
     }
     /// <summary>
@@ -224,6 +230,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (inputBehaviour.shooting && !reload)
         {
             animator.SetBool("IsShooting", true);
+            muzzleAnimator.SetTrigger("Muzzle");
             Instantiate(bullet, shootPoint.position, Quaternion.identity);
             StartCoroutine(Reload());
         }
@@ -246,12 +253,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (died)
             return;
 
-
-        if (playerAnimationState != PlayerAnimationState.Dead)
-        {
-            playerAnimationState = PlayerAnimationState.Dead;
-            animator.SetBool("IsDead", true);
-        }
+        animator.SetBool("IsDead", true);
 
         rigidBody.velocity = Vector2.zero;
         var direction = new Vector3(throwBackForce.x, throwBackForce.y, 0);
@@ -273,17 +275,19 @@ public class PlayerBehaviour : MonoBehaviour
     /// </summary>
     public void AnimationCycle()
     {
-
-        if (overlapping && playerAnimationState == PlayerAnimationState.Jump)
+        if (slide)
         {
-            playerAnimationState = PlayerAnimationState.Walk;
+            animator.SetBool("IsWalking", false);
+            animator.SetBool("IsJumping", false);
+        }
+        else if (overlapping)
+        {           
             animator.SetBool("IsWalking", true);
             animator.SetBool("IsJumping", false);
             animator.SetBool("IsSliding", false);
         }
-        else if (!overlapping && playerAnimationState == PlayerAnimationState.Walk)
+        else if (!overlapping)
         {
-            playerAnimationState = PlayerAnimationState.Jump;
             animator.SetBool("IsWalking", false);
             animator.SetBool("IsShooting", false);
             animator.SetBool("IsSliding", false);
@@ -298,18 +302,4 @@ public class PlayerBehaviour : MonoBehaviour
     }
     #endregion
 }
-
-
-public enum PlayerAnimationState
-{
-    None,
-    Idle,
-    Walk,
-    Jump,
-    Dead,
-    Shoot
-
-}
-
-
 

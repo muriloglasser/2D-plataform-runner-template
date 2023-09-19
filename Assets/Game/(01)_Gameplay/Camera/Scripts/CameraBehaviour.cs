@@ -47,7 +47,7 @@ public class CameraBehaviour : IGameManager
     }
     #endregion
 
-    #region Unity Metods
+    #region Core Metods
     /// <summary>
     /// Camera movement
     /// </summary>

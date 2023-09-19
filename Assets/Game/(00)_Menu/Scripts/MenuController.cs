@@ -21,7 +21,7 @@ public class MenuController : MonoBehaviour
     private TransitionController transitionController;
     #endregion
 
-    #region Unity Metods
+    #region Unity Methods
     private void Awake()
     {
         panel.transform.localScale = Vector3.zero;
@@ -37,7 +37,7 @@ public class MenuController : MonoBehaviour
     }
     #endregion
 
-    #region Core Metods
+    #region Core Methods
     /// <summary>
     /// Set up ui events
     /// </summary>

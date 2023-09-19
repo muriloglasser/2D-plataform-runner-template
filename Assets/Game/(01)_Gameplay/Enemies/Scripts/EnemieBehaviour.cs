@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using DG.Tweening;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemieBehaviour : MonoBehaviour
 {
     #region Properties
     [SerializeField] private Rigidbody2D rb;
@@ -77,7 +77,7 @@ public class EnemyBehaviour : MonoBehaviour
     /// <param name="right"></param>
     private void Move(bool right)
     {
-        var direction = new Vector2((right ? 1 : -1) * walkSpeed * Time.deltaTime, rb.velocity.y);
+        var direction = new Vector2((right ? 1 : -1) * walkSpeed * Time.fixedDeltaTime, rb.velocity.y);
 
         rb.velocity = direction;
     }

@@ -23,7 +23,7 @@ Thank you for your understanding and cooperation.
 [DOTween](https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676)
 
 ## APK for test
-[Download APK](https://github.com/muriloglasser/3D-ragdoll-implementation/blob/Readme-update/Punch%20Game.apk)
+[Download APK](https://github.com/muriloglasser/2D-plataform-runner-template/blob/main/2d-runner.apk)
 
 # How to Run the Project
 Download Unity 2020.3.29f1.

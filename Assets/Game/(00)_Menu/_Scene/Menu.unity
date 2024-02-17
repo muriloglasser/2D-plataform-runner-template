@@ -1280,7 +1280,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 210912758434328035, guid: e357262da6d11bd4c9b54bbedd45a11c, type: 3}
       propertyPath: m_text
-      value: Hermit Test
+      value: 2D Runner
       objectReference: {fileID: 0}
     - target: {fileID: 210912758434328035, guid: e357262da6d11bd4c9b54bbedd45a11c, type: 3}
       propertyPath: m_fontSize
